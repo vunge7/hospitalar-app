@@ -4,8 +4,7 @@ import AuthProvider from '../src/contexts/auth';
 import Login from '../src/pages/Login';
 import RoutesApp from './routes';
 //Alterado no github
-//Alterado no VSCODE
-
+//Alterado do VSCODE 7
 function App() {
     return (
         <BrowserRouter>
