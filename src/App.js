@@ -6,6 +6,7 @@ import RoutesApp from './routes';
 //Alterado no github
 //Alterado do VSCODE 7 8 9
 //Do repositorio
+//Do VS Code
 function App() {
     return (
         <BrowserRouter>
