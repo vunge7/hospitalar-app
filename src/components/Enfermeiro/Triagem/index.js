@@ -22,6 +22,7 @@ import {
 import { format } from 'date-fns';
 
 import TriagemManchester from '../../TriagemManchester';
+import { viewPdfPacienteFita } from '../../util/utilitarios';
 
 const { Search } = Input;
 
@@ -96,6 +97,9 @@ function Triagem() {
                         //setLoading(false);
                         console.log('Falha ao registrar a linha', e);
                     });
+
+                //chamar o reports
+                viewPdfPacienteFita('paciente_fita', idInscricao);
             })
             .catch((e) => {
                 console.log('Falha ao registrar a triagem', e);
@@ -529,7 +533,7 @@ function Triagem() {
                                 width: '50%',
                             }}
                         >
-                            <TriagemManchester />
+                            <TriagemManchester idInscricao={idInscricao} />
                         </Card>
                     </Flex>
                 </Modal>

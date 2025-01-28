@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Menu } from 'antd';
 import { AuthContext } from '../../contexts/auth';
 
+import Cabecario from '../../components/Cabecario';
+import Rodape from '../../components/Rodape';
+
 import {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
@@ -18,14 +21,29 @@ function PainelMedico({ children }) {
 
         items = [
             {
-                key: '/medico/home',
+                key: '/medico/dashboard',
                 icon: <HomeFilled />,
-                label: 'Home',
+                label: 'Dashboard',
             },
             {
                 key: '/medico/consulta',
                 icon: <HomeFilled />,
                 label: 'Consultas',
+            },
+            {
+                key: '/medico/bu',
+                icon: <HomeFilled />,
+                label: 'Banco de Urgência',
+            },
+            {
+                key: '/medico/internamento',
+                icon: <HomeFilled />,
+                label: 'Internamento',
+            },
+            {
+                key: '/medico/cirurgia',
+                icon: <HomeFilled />,
+                label: 'Cirurgia',
             },
             {
                 key: '/logout',
@@ -47,7 +65,7 @@ function PainelMedico({ children }) {
                 height: '100vh',
             }}
         >
-            <Header />
+            <Cabecario />
             <div
                 style={{
                     width: 'auto',
@@ -59,7 +77,7 @@ function PainelMedico({ children }) {
                 <SideMenu menu={menu} />
                 <Content>{children}</Content>
             </div>
-            <Footer />
+            <Rodape />
         </div>
     );
 }
@@ -105,39 +123,6 @@ function SideMenu(props) {
 
 function Content({ children }) {
     return <div style={{ marginTop: 10, marginLeft: 50 }}>{children}</div>;
-}
-
-function Header() {
-    return (
-        <div
-            style={{
-                height: 60,
-                backgroundColor: '#666666',
-                color: '#FFF',
-                marginBottom: 2,
-            }}
-        >
-            Painel do Médico
-        </div>
-    );
-}
-
-function Footer() {
-    return (
-        <div
-            style={{
-                height: 60,
-                backgroundColor: '#666666',
-                color: 'white',
-                display: 'flex',
-                justifyContent: 'center',
-                alignContent: 'center',
-                fontWeight: 'bold',
-            }}
-        >
-            Footer
-        </div>
-    );
 }
 
 export default PainelMedico;

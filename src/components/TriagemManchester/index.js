@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Radio, AutoComplete, Flex, Card } from 'antd';
 import { TM, VERMELHO, LARANJA, AMARELO, VERDE } from '../../util/file';
+import { api } from '../../service/api';
 const options = TM;
 const optionsVermelho = VERMELHO;
 const optionsLaranja = LARANJA;
@@ -37,6 +38,49 @@ function TriagemManchester(props) {
         updateListYellow();
         updateListGreen();
     }, [queixaId]);
+
+    useEffect(() => {
+        async function updateEstadoTriagemManchester() {
+            let inscricaoId = props.idInscricao;
+            let corTranslate = translateCor();
+            ///inscricao/edit/tm/{id}/{cor}/{minuto}
+
+            await api
+                .put(
+                    '/inscricao/edit/tm/' +
+                        inscricaoId +
+                        '/' +
+                        corTranslate +
+                        '/' +
+                        minuto
+                )
+                .then((r) => {
+                    console.log('actualizado com sucesso');
+                })
+                .catch((e) => {
+                    console.log('Error', e);
+                });
+        }
+
+        function translateCor() {
+            switch (cor) {
+                case corVermelha:
+                    return 'Vermelho';
+                case corLaranja:
+                    return 'Laranja';
+                case corAmarela:
+                    return 'Amarelo';
+                case corVerde:
+                    return 'Verde';
+                case corAzul:
+                    return 'Azul';
+                default:
+                    return '';
+            }
+        }
+
+        updateEstadoTriagemManchester();
+    }, [cor, minuto]);
 
     const handleSelectRadio = (e) => {
         console.log('Selecionado e valor: ' + e.target.value);

@@ -23,6 +23,7 @@ import {
     paisesOptions,
 } from '../../util/db';
 import moment from 'moment/moment';
+import Seguradora from '../Seguradora';
 
 const baseStyle = {};
 const { Search } = Input;
@@ -63,6 +64,8 @@ function Paciente() {
     const [formHeader] = Form.useForm();
 
     const [messageApi, contextHolder] = message.useMessage();
+
+    const [pacienteSeguradora, setPacienteSeguradora] = useState([]);
 
     useEffect(() => {
         /*
@@ -523,6 +526,15 @@ function Paciente() {
         ]);
     };
 
+    function PacienteSeguradora(props) {
+        return (
+            <tr className="tr">
+                <td className="td">{props.id}</td>
+                <td className="td">{props.nome}</td>
+            </tr>
+        );
+    }
+
     return (
         <Flex
             gap="midlle"
@@ -932,6 +944,21 @@ function Paciente() {
                                                     />
                                                 </Form.Item>
                                             </div>
+                                        </Flex>
+                                    </Card>
+                                ),
+                            },
+
+                            {
+                                label: 'Seguradora',
+                                key: '5',
+                                children: (
+                                    <Card style={{ width: 800 }}>
+                                        <Flex
+                                            horizontal
+                                            style={{ marginBottom: 10 }}
+                                        >
+                                            <Seguradora pacienteId={id} />
                                         </Flex>
                                     </Card>
                                 ),

@@ -5,9 +5,8 @@ import Login from '../src/pages/Login';
 import RoutesApp from './routes';
 //Alterado no github
 //Alterado do VSCODE 7 8 9
-//Do repositorio
+//Do repositoriox
 //Do VS Code 10
-
 function App() {
     return (
         <BrowserRouter>

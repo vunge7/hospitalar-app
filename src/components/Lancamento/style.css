@@ -1,0 +1,62 @@
+.content-lancamento {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.item-lancamento {
+    height: auto;
+    width: 1024px;
+    background-color: rgb(255, 255, 255);
+}
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-content .item {
+    display: flex;
+    flex-direction: row;
+}
+
+.form-content .item .linha {
+    width: 55%;
+}
+
+.input {
+    width: 50px;
+}
+
+.submit-button {
+    background-color: #4caf50; /* Cor de fundo */
+    border: none; /* Remove a borda */
+    color: white; /* Cor do texto */
+    padding: 12px 20px; /* Espaçamento interno */
+    text-align: center; /* Alinhamento do texto */
+    text-decoration: none; /* Remove sublinhado */
+    display: inline-block; /* Para se comportar como um elemento inline */
+    font-size: 16px; /* Tamanho da fonte */
+    font-weight: bold; /* Negrito */
+    border-radius: 8px; /* Borda arredondada */
+    cursor: pointer; /* Mostra o cursor de "mãozinha" */
+    transition: background-color 0.3s ease; /* Animação suave */
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    background-color: #45a049; /* Cor ao passar o mouse */
+}
+
+.submit-button:active {
+    background-color: #397d3c; /* Cor ao clicar */
+    transform: scale(0.98); /* Pequeno efeito de clique */
+}
+
+.painel {
+    /*
+    background-color: rgb(0, 72, 126);
+    height: 10px;
+    color: white;
+    */
+}

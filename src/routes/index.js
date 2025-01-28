@@ -6,13 +6,13 @@ import PainelMedico from '../pages/PainelMedico';
 import Paciente from '../components/Paciente';
 import Triagem from '../components/Enfermeiro/Triagem';
 import Consulta from '../components/Medico/Consulta';
-import Home from '../components/Medico/Home';
 import Private from '../contexts/Private';
 import Dashboard from '../components/Dashboard';
 import DashboardMedico from '../components/Medico/DashboardMedico';
 import TriagemManchester from '../components/TriagemManchester';
 import TextToSpeech from '../components/TextToSpeech';
 import Test from '../components/Test';
+import PainelPrincipal from '../components/PainelPrincipal';
 
 function RoutesApp() {
     return (
@@ -27,9 +27,7 @@ function RoutesApp() {
                 path="/admin"
                 element={
                     <Private>
-                        <PainelAdministrativo page="admin">
-                            <h1>Home Admin</h1>
-                        </PainelAdministrativo>
+                        <PainelPrincipal />
                     </Private>
                 }
             />

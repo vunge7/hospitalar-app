@@ -3,6 +3,11 @@ import { api } from '../../../service/api';
 import jsPDF from 'jspdf';
 import fundoLogo from '../../../assets/images/logo5.jpg';
 import Receituario from '../Receituario';
+import Procedimento from '../../Procedimento';
+import ExameReqExameado from '../../ExameRequisitado';
+
+import { ConfigProvider } from 'antd';
+import ptBR from 'antd/lib/locale/pt_BR';
 
 import {
     List,
@@ -206,7 +211,7 @@ function Consulta() {
                         ]}
                     >
                         <TextArea
-                            rows={14}
+                            rows={10}
                             placeholder="Digite o motivo da consulta"
                         />
                     </Form.Item>
@@ -220,7 +225,7 @@ function Consulta() {
                 <>
                     <Form.Item name="historiaClinica">
                         <TextArea
-                            rows={14}
+                            rows={10}
                             placeholder="Digite a história clínica "
                         />
                     </Form.Item>
@@ -235,7 +240,7 @@ function Consulta() {
                     <Form.Item name="exameFisico">
                         <TextArea
                             id="exameFisico"
-                            rows={14}
+                            rows={10}
                             placeholder="Insira o detalhe do exame físico"
                         />
                     </Form.Item>
@@ -245,7 +250,7 @@ function Consulta() {
         {
             key: '4',
             label: 'Exames Complementares',
-            children: '',
+            children: <ExameReqExameado />,
         },
         {
             key: '5',
@@ -255,13 +260,20 @@ function Consulta() {
         {
             key: '6',
             label: 'Receituário',
+            children: <Receituario idInscricao={idInscricao} />,
+        },
+        {
+            key: '7',
+            label: 'Triagem',
+            children: <>Triagem</>,
+        },
+        {
+            key: '8',
+            label: 'Procedimentos',
             children: (
-                <Receituario
-                    fundoLogo={fundoLogo}
-                    paciente={nomePaciente}
-                    userName="Domingos Dala Vunge"
-                    numeroOrder="7170"
-                />
+                <ConfigProvider locale={ptBR}>
+                    <Procedimento idInscricao={idInscricao} />
+                </ConfigProvider>
             ),
         },
     ];
@@ -330,10 +342,11 @@ function Consulta() {
             </Flex>
 
             <Modal
-                title={'Consulta do doente: '}
+                title={'Consulta do doente: ' + nomePaciente.toUpperCase()}
                 open={isModalConsulta}
                 onCancel={handleCancel}
-                width={800}
+                width={60 + '%'}
+                height={25 + '%'}
             >
                 <Form
                     form={formConsulta}
@@ -341,36 +354,32 @@ function Consulta() {
                         isConsultaCriada ? _onFinishActualizar : _onFinishCriar
                     }
                 >
-                    <div>
-                        <span>{nomePaciente}</span>
-                        <div>Dados da Triagem</div>
-                        <Button onClick={() => convertToPdf()}>
-                            Visualizar Receita
-                        </Button>
-                    </div>
+                    <div></div>
                     <Form.Item>
-                        {isConsultaCriada ? (
-                            <Button block type="primary" htmlType="submit">
-                                Actualizar
-                            </Button>
-                        ) : (
-                            <Button
-                                block
-                                type="primary"
-                                loading={loading}
-                                htmlType="submit"
-                            >
-                                Criar
-                            </Button>
-                        )}
+                        <div>
+                            {isConsultaCriada ? (
+                                <Button block type="primary" htmlType="submit">
+                                    Actualizar
+                                </Button>
+                            ) : (
+                                <Button
+                                    block
+                                    type="primary"
+                                    loading={loading}
+                                    htmlType="submit"
+                                >
+                                    Criar
+                                </Button>
+                            )}
+                        </div>
                     </Form.Item>
 
                     <Tabs
                         defaultActiveKey="1"
                         items={_itemsTabs}
                         onChange={_onChange}
-                        tabPosition="right"
-                        style={{ marginTop: 20 }}
+                        tabPosition="top"
+                        style={{ marginTop: 10 }}
                     />
                 </Form>
             </Modal>

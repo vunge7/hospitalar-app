@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
-import './style.css';
-function Test() {
-    useEffect(() => {}, []);
+import React, { useEffect, useState } from 'react';
 
+import { api } from '../../service/api';
+import { VoiceCapture } from '../../components/util/utilitarios';
+
+function Test() {
     return (
-        <div className="container">
-            <span> Enfermeiro</span>
+        <div>
+            <VoiceCapture />
         </div>
     );
 }
-
 export default Test;
