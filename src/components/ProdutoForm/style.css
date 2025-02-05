@@ -44,7 +44,7 @@ h2 {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background-image: url(C:\projetos\front-end\react\assets\image\ProdutoForm\seta-para-baixo.png);
+  background-image: url('../../assets/images/seta-pra-baixo.png');
   background-repeat: no-repeat;
   background-position: right 10px center;
   background-size: 12px;
