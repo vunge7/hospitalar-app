@@ -44,7 +44,7 @@ h2 {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background-image: url();
+  background-image: url(C:\projetos\front-end\react\assets\image\ProdutoForm\seta-para-baixo.png);
   background-repeat: no-repeat;
   background-position: right 10px center;
   background-size: 12px;
@@ -361,6 +361,64 @@ button.remo-button {
   color: red;
   font-size: 12px;
   margin-top: 5px;
+}
+/* Estilo geral da tabela */
+.my-custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Cabeçalho da tabela */
+.my-custom-table thead {
+  background-color: #333;
+  color: #fff;
+}
+
+.my-custom-table th {
+  padding: 10px;
+  text-align: left;
+  font-size: 14px;
+}
+
+/* Linhas da tabela */
+.my-custom-table tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.my-custom-table td {
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Hover nas linhas */
+.my-custom-table tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+/* Botões de ação */
+.my-custom-table button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.my-custom-table button:hover {
+  background-color: #45a049;
+}
+
+.my-custom-table button.delete {
+  background-color: #f44336;
+}
+
+.my-custom-table button.delete:hover {
+  background-color: #e53935;
 }
 
 /* Para telas menores que 768px (como tablets e celulares em modo retrato) */
